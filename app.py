@@ -78,11 +78,11 @@ if question:
         add_generation_prompt=True
     )
 
-    inputs = tokenizer(
-        prompt,
-        return_tensors="pt"
-    ).to(model.device)
-
+inputs = tokenizer(
+    prompt,
+    return_tensors="pt",
+    return_token_type_ids=False
+  ).to(model.device)
     with st.spinner("CarHub is thinking..."):
 
         with torch.no_grad():
